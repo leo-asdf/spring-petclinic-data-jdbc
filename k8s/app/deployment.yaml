@@ -47,7 +47,7 @@ spec:
           env: []
           volumeMounts:
             - name: app-logs
-              mountPath: opt/devops/logs
+              mountPath: /opt/devops/logs
             - name: logback-spring-config
               mountPath: /opt/devops/config/logback-spring.xml
               subPath: logback-spring.xml
