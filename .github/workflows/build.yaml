@@ -1,10 +1,10 @@
-name: Manual Build & Deploy
+name: Manual Build
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version tag to use for build & deploy'
+        description: 'Build'
         required: true
 
 jobs:
