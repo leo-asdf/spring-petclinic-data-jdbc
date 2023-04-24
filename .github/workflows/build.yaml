@@ -28,7 +28,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: syl1709/petclinic:${{ github.event.inputs.version }}
+          platforms: linux/arm64,linux/amd64
+          tags: |
+            syl1709/petclinic:latest
+            syl1709/petclinic:${{ github.event.inputs.version }}
 
   deploy:
     runs-on: ubuntu-latest
