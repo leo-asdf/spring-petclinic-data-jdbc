@@ -44,7 +44,9 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 2
-          env: []
+          env:
+            - name: JAVA_OPTIONS
+              value: "-Dlogging.config=/opt/devops/config/logback-spring.xml"
           volumeMounts:
             - name: app-logs
               mountPath: /opt/devops/logs
