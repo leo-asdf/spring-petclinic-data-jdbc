@@ -29,6 +29,8 @@ jobs:
           context: .
           push: true
           tags: syl1709/petclinic:${{ github.event.inputs.version }}
+          build-args: |
+            VERSION=${{ github.event.inputs.version }}
 
   deploy:
     runs-on: ubuntu-latest
