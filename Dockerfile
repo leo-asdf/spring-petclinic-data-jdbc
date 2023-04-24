@@ -1,7 +1,7 @@
 FROM openjdk:17-jdk-slim
 
 RUN useradd -r -u 1000 devops
-mkdir -p /opt/devops
+RUN mkdir -p /opt/devops
 RUN chown devops /opt/devops
 
 USER devops
