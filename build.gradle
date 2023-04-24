@@ -58,6 +58,7 @@ dependencies {
 }
 
 jar {
+    archivesBaseName = 'petclinic.jar'
     enabled = false
 }
 
