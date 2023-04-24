@@ -1,10 +1,10 @@
-name: Manual Build & Deploy
+name: Manual Build
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version tag to use for build & deploy'
+        description: 'Build'
         required: true
 
 jobs:
@@ -44,26 +44,3 @@ jobs:
           tags: |
             syl1709/petclinic:latest
             syl1709/petclinic:${{ github.event.inputs.version }}
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          repository: leo-asdf/petclinic-argocd
-          ref: main
-
-      - name: Update values-deployment.yaml
-        run: |
-          pwd
-          sed -i "s/deployImageTag:.*/deployImageTag: ${{ github.event.inputs.version }}/" petclinc-app/values-deployment.yaml
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add values-deployment.yaml
-          git commit -m "Update deployImageTag to ${{ github.event.inputs.version }}"
-          git push
