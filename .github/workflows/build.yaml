@@ -57,13 +57,10 @@ jobs:
 
       - name: Update values-deployment.yaml
         run: |
+          ls -al
           pwd
-          ls
-          pwd
-          cd petclinic/petclinc-app
-          pwd
-          ls
-          sed -i "s/deployImageTag:.*/deployImageTag: ${{ github.event.inputs.version }}/" ./petclinc/petclinc-app/values-deployment.yaml
+          sed -i "s/deployImageTag:.*/deployImageTag: ${{ github.event.inputs.version }}/" values-deployment.yaml
+          
 
       - name: Commit and push changes
         run: |
