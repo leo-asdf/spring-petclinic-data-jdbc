@@ -8,7 +8,6 @@ plugins {
 }
 
 group = 'org.springframework.samples'
-version = '3.0.1'
 sourceCompatibility = '17'
 
 repositories {
@@ -58,7 +57,7 @@ dependencies {
 }
 
 jar {
-    archivesBaseName = 'petclinic.jar'
+    archivesBaseName = 'petclinic'
     enabled = false
 }
 
